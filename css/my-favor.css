@@ -1,0 +1,31 @@
+
+@charset "UTF-8";
+.button.is-green_candy {
+    background: #3dbe8b;
+    background: -webkit-linear-gradient(#43c692, #39b885);
+    background: linear-gradient(#43c692, #39b885);
+    border: 1px solid #1f7c57;
+    box-shadow: inset #4fd3aa 0 1px;
+    text-shadow: #1c8f3d 0 1px 0;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    -webkit-transition: background 150ms;
+    transition: background 150ms;
+    position: relative;
+}
+.button.is-default {
+    font-size: 14px;
+    padding: 15px 20px;
+    text-transform: none;
+}
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    -webkit-appearance: none;
+}

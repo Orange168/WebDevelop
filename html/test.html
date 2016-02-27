@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/my-favor.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .button:hover{
+          background: -webkit-linear-gradient(#2ec388, #26b57c);
+      }
+      .form-field.is-invalid .input {
+      border-color: #ed5858;
+      box-shadow: 0 0 10px rgba(237,88,88,0.5);
+      padding: 15px 12px;
+      }
+      .input:focus, .input.is-focus {
+        background: white;
+        border-color: #3eade6;
+        box-shadow: 0 0 10px rgba(62,173,230,0.5);
+        outline: 0;
+      }
+
+      .input {
+        background: #FAFAFA;
+        border-radius: 4px;
+        border: 1px solid #EEE;
+        color: #3c3c3c;
+        font-family: "proxima-nova", "Arial", "sans-serif";
+        font-size: 14px;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 20px 15px;
+        -webkit-transition: all 200ms;
+        transition: all 200ms;
+        width: 60%;
+        -webkit-appearance: none;
+    }
+    .input:hover{
+        background: #FAFAFA;
+        border-radius: 4px;
+        border: 1px solid #EEE;
+        color: #3c3c3c;
+        font-family: "proxima-nova", "Arial", "sans-serif";
+        font-size: 14px;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 20px 15px;
+        -webkit-transition: all 200ms;
+        transition: all 200ms;
+        width: 60%;
+        -webkit-appearance: none;
+    }
+    </style>
+  </head>
+  <body>
+
+  <div class="embeddable_form-row form-field is-email_field is-invalid">
+    <input autocomplete="off" class="input is-medium is-invalid" data-role="email" name="blog_subscription[email]" placeholder="Enter your email address..." type="text">
+    <input name="blog_subscription[vertical]" type="hidden" value="developers"><input name="from_widget" type="hidden" value="true">
+    <span class="error form-error" data-role="error">You can't leave this empty</span>
+  </div>
+  <a class = "button is-green_candy is-default" href="http:www.baidu.com">Hire the Autor</a>
+  </body>
+</html>
