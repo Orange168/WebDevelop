@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2D animator</title>
+  </head>
+  <style media="screen">
+    .outer{
+      width: 200px; height: 200px;
+      border: 1px solid red ;
+    }
+    .inner{
+      width: 200px; height:200px;
+      border: 1px solid green ;
+      transform: scale(0.5,0.5);
+      transform-origin:left top;
+      /*-webkit-transform-origin: 50%,50%;*/
+      /*transform:translate(10px,10px);*/
+      transform: rotate(10deg);
+      transform: skew(10deg,10deg);
+    }
+    .second{
+      margin-top: 200px ;
+      width: 200px; height: 200px;
+      border: 3px solid black ;
+    }
+  </style>
+  <script type="text/javascript">
+  window.onload= function () {
+    var div = document.getElementsByClassName("second")[0] ;
+    var angle =0 ;
+    setInterval(function(){
+      angle++;
+      setCss3(div,{transform:"rotate("+angle+"deg","transform-origin":"50% 50%"});
+    },60)
+  }
+  function setCss3(obj,attrObj){
+    for (var i in attrObj) {
+      var newi = i ;
+      if (newi.indexOf("-") > 0) {
+        var num=newi.indexOf("-");
+        newi=newi.replace(newi.substr(num,2),newi.substr(num+1,1).toUpperCase());
+      }
+      obj.style[newi]=attrObj[i];
+      newi=newi.replace(newi.charAt(0),newi.charAt(0).toUpperCase());
+      obj.style["webkit"+newi]=attrObj[i];
+      obj.style["moz"+newi]=attrObj[i];
+      obj.style["o"+newi]=attrObj[i];
+      obj.style["ms"+newi]=attrObj[i]; //IE
+    }
+  }
+  </script>
+  <body>
+    <div class="outer">
+      <div class="inner">
+      </div>
+    </div>
+    <div class="second">
+    </div>
+  </body>
+</html>

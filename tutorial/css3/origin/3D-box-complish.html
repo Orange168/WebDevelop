@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords"content=""/>
+<meta name="description" content="本篇网页的概述，一段话，对网站的进一步描述"/>
+<meta name="author"  content="网页作者的资料">
+<meta name="robots" content="" />
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+ul,li,dl,dd{
+  margin:0;padding:0;list-style:none;
+  }
+.out{
+   width:150px;height:150px;padding:150px;border:1px solid red;
+   margin:0 auto;perspective:500px;position:relative;
+ }
+.box{
+  width:150px;height:150px;position:relative;transform-style:preserve-3d;
+  transform-origin:50% 50% 75px;
+}
+.box li{
+ width:150px;height:150px;position:absolute;
+ line-height:150px;text-align:center;font-size:20px;
+}
+.box li:nth-of-type(1){
+ background:red;top:-150px;left:0;
+ transform:rotateX(-90deg);transform-origin:bottom;
+}
+.box li:nth-of-type(2){
+ background:pink;top:0px;left:-150px;
+ transform:rotateY(90deg);transform-origin:right;
+}
+.box li:nth-of-type(3){
+ background:green;top:-0;left:0;
+}
+.box li:nth-of-type(4){
+ background:yellow;top:0px;left:150px;
+  transform:rotateY(-90deg);transform-origin:left;
+}
+.box li:nth-of-type(5){
+ background:blue;top:150px;left:0;
+   transform:rotateX(90deg);transform-origin:top;
+}
+.box li:nth-of-type(6){
+ background:orange;top:0px;left:0;
+transform:translateZ(150px);
+}
+.btns{
+  position:absolute;width:300px;height:30px;left:150px;top:350px;
+}
+.btns dd{
+  width:15px;height:15px;border-radius:50%;
+  box-shadow:1px 1px 2px #111;
+  float:left;margin-right:15px;background:#ccc;cursor:pointer;
+}
+</style>
+<script src="css3.js"></script>
+<script>
+ window.onload=function  () {
+   var box=document.getElementsByTagName("ul")[0];
+   var btns=document.getElementsByTagName("dd");
+   var num=0;
+
+   function move () {
+     num++;
+	   if(num==4){
+	    num=0;
+	   }
+      changeA(box,(num-1)*90,num*90);
+      for (var i=0; i<btns.length; i++) {
+	    btns[i].style.backgroundColor="#ccc";
+      }
+	  btns[num].style.backgroundColor="red";
+   }
+  var t= setInterval(move,4000)
+
+   for (var i=0; i<btns.length; i++) {
+       btns[i].index=i;
+       btns[i].onclick=function  () {
+  	    for (var i=0; i<btns.length; i++) {
+  	      btns[i].style.backgroundColor="#ccc";
+        }
+    	   this.style.backgroundColor="red";
+         changeA(box,(this.index-1)*90,this.index*90);
+    	   num=this.index
+       }
+
+  	 btns[i].onmouseover=function  () {
+  	   clearInterval(t);
+  	 }
+  	 btns[i].onmouseout=function  () {
+  	   t= setInterval(move,4000)
+  	 }
+   }
+
+ }
+
+ function changeA (obj,startA,endA) {
+    clearInterval(obj.t);
+    obj.t=setInterval(function(){
+    	 if(startA==endA){
+    	   clearInterval(obj.t);
+    	 }else{
+         var speed=(endA-startA)*0.3;
+         speed=speed<0?Math.floor(speed):Math.ceil(speed);
+         startA+=speed;
+         setCss3(obj,{transform:"rotateY("+(startA+speed)+"deg)"})
+    	 }
+   },100)
+ }
+</script>
+</head>
+
+<body>
+<div class="out">
+	<ul class="box">
+	  <li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<dl class="btns">
+		<dd style="background:red"></dd><dd></dd><dd></dd><dd></dd>
+	</dl>
+</div>
+</body>
+</html>

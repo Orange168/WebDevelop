@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>onclick date()</title>
+  </head>
+  <style media="screen">
+
+  </style>
+  <script type="text/javascript">
+  // 1. JavaScript Can Change HTML Content
+
+    window.onload=function(){
+      var button = document.getElementById('second');
+      var content = document.getElementById('content');
+      button.onclick=function(){
+        //innerHTML
+        content.innerHTML='Hello JavaScript';
+      }
+    }
+    // 2.JavaScript Can Change HTML Attributes
+    function changeImage(){
+      var image = document.getElementById('myImage');
+      if (image.src.match("bulbon")) {
+          image.src="../res/drawable/pic_bulboff.gif";
+      }else {
+        image.src="../res/drawable/pic_bulbon.gif";
+      }
+    }
+    // 3. Change HTML Styles (CSS)
+    function changeStyle(){
+      content.style.fontSize="25px";
+      content.style.color="red";
+    }
+    // 3. Can Validate Data
+    function submit(){
+      var text;
+      var number = document.getElementById("number").value;
+      if (isNaN(number) || number <1 || number > 10) {
+        text="Input not valid";
+      }else {
+        text = "Input Ok";
+      }
+      document.getElementById("prompt").innerHTML=text;
+    }
+  </script>
+  <body>
+    <p id="content">
+      JavaScript Can Change HTML Content
+    </p>
+    <button type="button"
+    onclick="document.getElementById('demo').innerHTML = Date()"
+    name="button">
+      Click me to display Date and Time
+    </button>
+    <div class="">
+      <div id="demo">
+        click me show the date ifno
+      </div>
+      <button type="button" id='second' name="button">
+        innerDate
+      </button>
+      <img src="../res/drawable/pic_bulboff.gif" id="myImage" onclick="changeImage()" alt="" />
+      <button type="button" name="style" onclick="changeStyle()">changeStyle</button>
+    </div>
+
+    <div class="submit" margin-top:"300px">
+      <h1>JavaScript Can Validate input</h1>
+      <p>
+        Please input a number between 1 and 10:
+      </p>
+      <input id="number">
+      <button type="button" onclick="submit()" id="submit">sumbit</button>
+      <p id="prompt">
+      </p>
+    </div>
+
+  </body>
+</html>

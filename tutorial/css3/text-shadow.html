@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>text shadow</title>
+  </head>
+  <style media="screen">
+    div{
+      font-size: 30px;
+      text-shadow:2px 2px 0.7px #000
+    }
+    .shadow{
+      cursor: pointer;
+    }
+    .shadow:hover{
+      /*text-shadow: 1px 1px 3px #c14141*/
+    }
+  </style>
+  <script >
+    window.onload= function(){
+      var div = document.getElementsByTagName("div")[1];
+      var num =0 ;
+      var t;
+      div.onmouseover= function(){
+          t = setInterval(function(){
+          num ++;
+          if (num>=5) {
+            clearInterval(t)
+          }else {
+            div.style.textShadow=num+"px " + num +"px "+num+"px #333";
+          }
+        },60)
+      }
+      div.onmouseout= function(){
+        clearInterval(t);
+        t = setInterval(function(){
+          num--;
+          if (num<=0) {
+            clearInterval(t)
+          }else {
+            div.style.textShadow=num+"px " + num + "px " + num + "px #333";
+          }
+        }, 60)
+      }
+    }
+    // window.onload=function  () {
+    //   var div=document.getElementsByTagName("div")[1];
+    // var num=0;
+    // var t;
+    // div.onmouseover=function  () {
+    //     clearInterval(t);
+    //     t=setInterval(function(){
+    //      num++;
+    //      if(num>=5){
+    //       clearInterval(t)
+    //      }else{
+    //       div.style.textShadow=num+"px "+num+"px "+num+"px #333";
+    //      }
+    //     },60)
+    //  }
+    //
+    //  div.onmouseout=function  () {
+    //     clearInterval(t);
+    //   t=setInterval(function(){
+    //    num--;
+    //    if(num<=0){
+    //     clearInterval(t)
+    //    }else{
+    //     div.style.textShadow=num+"px "+num+"px "+num+"px #333";
+    //   }
+    //   },60)
+    //
+    //  }
+    // }
+  </script>
+  <body>
+    <div class="one">
+      css3视频教程
+    </div>
+    <div class="shadow">
+      本篇网页的概述，一段话，对网站的进一步描述
+    </div>
+  </body>
+</html>

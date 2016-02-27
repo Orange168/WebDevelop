@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>3D Animator</title>
+  </head>
+  <style media="screen">
+    body{
+      perspective: 500px;
+    }
+    .outer{
+      width: 200px;height: 200px;
+      border: 1px solid red;
+      margin: 0 auto;
+      perspective: 500px;
+      transform: rotateY(60deg);
+      transform-style: preserve-3d;
+    }
+    .inner{
+      width: 100px;height: 100px;
+      border: 1px solid blue;
+      margin-top: 50px; margin-left: 50px;
+      /*transform-origin: bottom;*/
+      transform: rotateX(40deg);
+    }
+
+    ul,li{
+      margin: 0;padding: 0;
+      list-style: none;
+    }
+    .3d-box{
+      width: 150px;height: 150px;
+      padding:150px;border: 1px solid red;
+      perspective: 500px;
+    }
+    .box{
+      width: 150px; height: 150px;
+      border: 1px solid blue;
+      position: relative ;
+      margin-top: 300px;
+      margin-left: 400px;
+      transform-style: preserve-3d;
+    }
+    .box li{
+       width:150px;height:150px;position:absolute;
+       line-height:150px;text-align:center;font-size:20px;
+    }
+    .box li:nth-of-type(1){
+       background:red;top:-150px;left:0;
+       transform:rotateX(-90deg);transform-origin:bottom;
+    }
+    .box li:nth-of-type(2){
+       background:pink;top:0px;left:-150px;
+       transform:rotateY(90deg);transform-origin:right;
+    }
+    .box li:nth-of-type(3){
+       background:green;top:-0;left:0;
+    }
+    .box li:nth-of-type(4){
+       background:yellow;top:0px;left:150px;
+      transform:rotateY(-90deg);transform-origin:left;
+    }
+    .box li:nth-of-type(5){
+       background:blue;top:150px;left:0;
+       transform:rotateX(90deg);transform-origin:top;
+    }
+    .box li:nth-of-type(6){
+       background:orange;top:0px;left:0;
+       transform:translateZ(150px);
+    }
+  </style>
+  <body>
+
+    <div class="outer">
+      <div class="inner">
+
+      </div>
+    </div>
+
+    <div class="3d-box">
+      <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+    </div>
+  </body>
+</html>

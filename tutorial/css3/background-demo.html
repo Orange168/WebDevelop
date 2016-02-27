@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>background-demo</title>
+  </head>
+  <script type="text/javascript">
+    window.onload= function(){
+      var div = document.getElementsByTagName("div")[0];
+      var positionArr=(getStyle(div,"backgroundPosition")).split(",");
+      var num =0 ;
+      setInterval(function(){
+        for (var i = 0; i < positionArr.length; i++) {
+          if (i==num) {
+            positionArr[i]= "0 0";
+          }else {
+            positionArr[i]= "-500px -500px";
+          }
+        }
+        div.style.backgroundPosition = positionArr.join(",");
+        num++ ;
+      },2000)
+
+
+      function getStyle(obj,attr){
+        if (window.getComputedStyle) {
+          return getComputedStyle(obj, null)[attr];
+        }else {
+          return obj.currentStyle[attr];
+        }
+      }
+    }
+
+  </script>
+  <style media="screen">
+    div{
+      width: 200px; height: 200px ;
+      background-image: url(res/drawable/1.jpg),url(res/drawable/2.jpg),url(res/drawable/3.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%, 100% 100%, 100% 100%;
+      background-position: 0 0, -500px -500px, -500px -500px ;
+    }
+  </style>
+  <body>
+  <div class="">
+
+  </div>
+  </body>
+</html>
